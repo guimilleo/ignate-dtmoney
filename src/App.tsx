@@ -1,12 +1,12 @@
 import {GlobalStyle} from './styles/global'
-
+import { Header } from './components/Header'
 // esse export funciona melhor para imports da IDE
 export function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <>
+      <Header/>
       <GlobalStyle/>
-    </div>
+    </>
   );
 }
 
