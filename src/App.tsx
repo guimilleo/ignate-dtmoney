@@ -5,11 +5,11 @@ import { useState } from 'react'
 
 import { Dashboard } from './components/Dashboard';
 import { NewTransactionModal } from './components/NewTransactionModal';
+import { TransactionsProvider } from './hooks/useTransactions';
 
 Modal.setAppElement('#root')
 
 
-// esse export funciona melhor para imports da IDE
 export function App() {
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
 
@@ -22,7 +22,7 @@ export function App() {
     }
   
   return (
-    <>
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
 
@@ -32,10 +32,8 @@ export function App() {
       />
 
       <GlobalStyle/>
-    </>
+    </TransactionsProvider>
   );
 }
 
-// neste caso você está exportando uma variável 
-// e o arquivo que está a importando pode nomeá-la como quiser
 export default App;

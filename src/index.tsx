@@ -13,7 +13,7 @@ createServer({
       transactions: [
         {
           id: 1,
-          tittle: 'Freelance de website',
+          title: 'Freelance de website',
           type: 'deposit',
           category: 'Dev',
           amount: 600,
@@ -21,11 +21,11 @@ createServer({
         },
         {
           id: 2,
-          tittle: 'Conta de luz',
+          title: 'Conta de luz',
           type: 'withdraw',
-          category: 'Dev',
+          category: 'Casa',
           amount: 250,
-          createdAt: new Date('2021-02-17 11:30:00')
+          createdAt: new Date('2021-02-17 11:0:00')
         }
       ]
     })
@@ -33,11 +33,14 @@ createServer({
 
   routes() {
     this.namespace = 'api';
+
     this.get('/transactions', () => {
-      return this.schema.all('transaction') })
+      return this.schema.all('transaction') 
+    })
 
     this.post('/transactions', (schema, request) => {
       const data = JSON.parse(request.requestBody)
+
       return schema.create('transaction', data)
     })
   }
